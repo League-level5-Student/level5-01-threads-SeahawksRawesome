@@ -6,12 +6,15 @@ public class Worker implements Runnable {
 	ConcurrentLinkedQueue<Task> taskQueue;
 	
 	Worker(ConcurrentLinkedQueue<Task> taskQueue){
-		taskQueue = new ConcurrentLinkedQueue<Task>();
+		this.taskQueue = taskQueue;
 	}
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
-		while()
+		while(taskQueue.size() != 0) {
+			Task save = taskQueue.remove();
+			save.perform();
+		}
 	}
 
 
